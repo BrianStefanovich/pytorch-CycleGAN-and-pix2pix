@@ -53,6 +53,19 @@ python test.py --dataroot ./datasets/maps --name maps_cyclegan --model cycle_gan
 ```
 - The test results will be saved to a html file here: `./results/maps_cyclegan/latest_test/index.html`.
 
+# Testing the model
+
+-   `python test.py --dataroot datasets/dataset_name/testA --name model_name --model test --no_dropout`
+
+Change the `--dataroot` and `--name` to be consistent with your trained model's configuration.
+
+> from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix:
+> The option --model test is used for generating results of CycleGAN only for one side. This option will automatically set --dataset_mode single, which only loads the images from one set. On the contrary, using --model cycle_gan requires loading and generating results in both directions, which is sometimes unnecessary. The results will be saved at ./results/. Use --results_dir {directory_path_to_save_result} to specify the results directory.
+
+> You might want to specify --netG, --norm, --no_dropout to match the generator architecture of the trained model.  
+
+# Eval Script
+
 ## [Training/Test Tips](docs/tips.md)
 Best practice for training and testing your models.
 
