@@ -7,12 +7,13 @@
 git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 cd pytorch-CycleGAN-and-pix2pix
 ```
+- For pip users, please type the command `pip install -r requirements.txt`
 - For Conda users, you can create a new Conda environment using `conda env create -f environment.yml`.
 - For Docker users, we provide the pre-built Docker image and Dockerfile. Please refer to our [Docker](docs/docker.md) page.
 
 ### CycleGAN train/test
 
-CycleGANs requires square images for training, so to standardize the images, There's a little script (under scripts foleder) for resizing the images to a 512x512 square with the signature at the center and two black (transparent) strips at the top and bottom of the image.  
+CycleGANs requires square images for training, to standardize the images you can use a little script (under scripts foleder) to resize them to a 512x512 square with the signature at the center and two black (transparent) strips at the top and bottom of the image.  
   
 We also have to store the data folders in a particular structure. There should be sub-folders testA, testB, trainA, and trainB inside `datasets\dataset_name`. In trainA/testA, place the clean images (domainA) and in trainB/testB, place the noisy images.  
 `datasets`  
@@ -63,8 +64,6 @@ Change the `--dataroot` and `--name` to be consistent with your trained model's 
 > The option --model test is used for generating results of CycleGAN only for one side. This option will automatically set --dataset_mode single, which only loads the images from one set. On the contrary, using --model cycle_gan requires loading and generating results in both directions, which is sometimes unnecessary. The results will be saved at ./results/. Use --results_dir {directory_path_to_save_result} to specify the results directory.
 
 > You might want to specify --netG, --norm, --no_dropout to match the generator architecture of the trained model.  
-
-# Eval Script
 
 ## [Training/Test Tips](docs/tips.md)
 Best practice for training and testing your models.
