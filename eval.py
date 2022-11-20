@@ -9,6 +9,7 @@ from util import html, util
 import numpy as np
 from PIL import Image
 import sys
+import os
 
 try:
     import wandb
@@ -48,4 +49,8 @@ if __name__ == '__main__':
 
         #print(img_path)
         predicted_image = Image.fromarray(util.tensor2im(visuals['rec_A']) , 'RGB')
-        predicted_image.save(sys.stdout, 'PNG')
+
+        if(opt.save_image):
+            predicted_image.save(os.path.join(opt.results_dir, 'clean_' + img_path[0].split('/')[-1]))
+        else:
+            predicted_image.save(sys.stdout, 'PNG')
